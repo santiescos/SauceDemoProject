@@ -1,0 +1,15 @@
+# IDE and editor settings
+.idea/
+.settings/
+.vscode/
+*.iml
+.classpath
+.project
+
+# Build and output directories
+bin/
+target/
+test-output/
+
+# Logs and temporary files
+*.log
