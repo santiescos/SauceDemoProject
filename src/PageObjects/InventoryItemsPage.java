@@ -21,7 +21,7 @@ public class InventoryItemsPage extends BaseTest {
     private final By itemButton = By.cssSelector(".btn");
     
     // List to hold item names
-	private List <String> itemsName = getAllItemNames();
+	private List <String> itemsName = getAllItemsNames();
 	
 	// Instance variables
 	WebDriver driver;
@@ -35,11 +35,11 @@ public class InventoryItemsPage extends BaseTest {
 		return driver.findElements(inventoryItems);
 	}
 	
-	public boolean correctNumberOfITems() {
+	public boolean correctNumberOfItems() {
 		return (getAllItems().size() == 6);
 	}
 
-	public List <String> getAllItemNames() {
+	public List <String> getAllItemsNames() {
 		List <WebElement> items = getAllItems();
 		List <String> itemsName = new ArrayList<>();
 		for (WebElement item : items) {
@@ -49,7 +49,7 @@ public class InventoryItemsPage extends BaseTest {
 	}
 	
 	public void addItemToCart(String article) {
-		driver.findElement(By.cssSelector(""))
+		driver.findElement(By.cssSelector(""));
 	}
 	
 }

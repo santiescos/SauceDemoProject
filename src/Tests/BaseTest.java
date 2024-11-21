@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import PageObjects.InventoryPage;
 import PageObjects.LogInPage;
+import PageObjects.InventoryItemsPage;
 import Tests.Helpers.CommonAssertions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,8 +17,9 @@ public class BaseTest {
 	WebDriver driver;
     protected final String landingURL = "https://www.saucedemo.com/";
     protected LogInPage logInPage;
-    protected InventoryPage homePage;
+    protected InventoryPage inventoryPage;
     protected CommonAssertions commonAssertions;
+    protected InventoryItemsPage inventoryItemsPage;
     
     @BeforeClass
     public void initialize() {
@@ -26,8 +28,9 @@ public class BaseTest {
     	driver.manage().window().maximize();
     	accessLandingPage();
     	logInPage = new LogInPage(driver);
-    	homePage = new InventoryPage(driver);
+    	inventoryPage = new InventoryPage(driver);
     	commonAssertions = new CommonAssertions(driver);
+    	inventoryItemsPage = new InventoryItemsPage(driver);
     }
     
     @BeforeMethod
