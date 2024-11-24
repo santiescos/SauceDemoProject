@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import Tests.BaseTest;
 import Tests.Helpers.ElementUtils;
 
-public class InventoryItemsPage extends BaseTest {
+public class InventoryItemsPage {
 
 	// By locators
 	private final By inventoryItems = By.cssSelector("div[class='inventory_item']");

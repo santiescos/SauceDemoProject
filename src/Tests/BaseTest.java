@@ -3,7 +3,6 @@ package Tests;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import PageObjects.InventoryPage;
 import PageObjects.LogInPage;
 import PageObjects.InventoryItemsPage;
@@ -11,7 +10,6 @@ import Tests.Helpers.CommonAssertions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
