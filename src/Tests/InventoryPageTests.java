@@ -11,8 +11,28 @@ public class InventoryPageTests extends BaseTest {
 		Assert.assertTrue(inventoryItemsPage.correctNumberOfItems());
 	}
 	
-	@Test(description = "Verify add an item by its' name")
-	public void addItemToCart() {
-		
+	@Test(description = "Verify inventory is sorted a-z")
+	public void sortAZ() {
+		logInPage.accessStandardUser();
+		Assert.assertTrue(inventoryPage.filteringInventory("az"));
 	}
+	
+	@Test(description = "Verify inventory is sorted a-z")
+	public void sortZA() {
+		logInPage.accessStandardUser();
+		Assert.assertTrue(inventoryPage.filteringInventory("za"));
+	}
+	
+	@Test(description = "Verify inventory is sorted a-z")
+	public void sortHighToLow() {
+		logInPage.accessStandardUser();
+		Assert.assertTrue(inventoryPage.filteringInventory("hilo"));
+	}
+	
+	@Test(description = "Verify inventory is sorted a-z")
+	public void sortLowToHigh() {
+		logInPage.accessStandardUser();
+		Assert.assertTrue(inventoryPage.filteringInventory("lohi"));
+	}
+	
 }

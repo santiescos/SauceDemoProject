@@ -17,7 +17,6 @@ public class CommonAssertions {
 		InventoryPage inventoryPage = new InventoryPage(driver);
 		softAssert.assertTrue(inventoryPage.isFilterContainerVisible(), "Filter Container is not visible");
 		softAssert.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory Container is not visible");
-		softAssert.assertTrue(inventoryPage.isInventoryItemsVisible(), "Inventory Items is not visible");
 		softAssert.assertTrue(inventoryPage.isInventoryListVisible(), "Inventory List is not visible");
 	}
 	

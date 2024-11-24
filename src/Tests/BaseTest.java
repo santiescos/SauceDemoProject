@@ -11,6 +11,7 @@ import Tests.Helpers.CommonAssertions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
 
@@ -31,6 +32,7 @@ public class BaseTest {
     	inventoryPage = new InventoryPage(driver);
     	commonAssertions = new CommonAssertions(driver);
     	inventoryItemsPage = new InventoryItemsPage(driver);
+
     }
     
     @BeforeMethod

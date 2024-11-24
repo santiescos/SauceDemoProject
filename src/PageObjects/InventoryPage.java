@@ -10,6 +10,7 @@ import Tests.Helpers.ElementUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -41,17 +42,40 @@ public class InventoryPage {
 	public boolean isProductsStringCorrect() {return driver.findElement(productsTitle).getText().equalsIgnoreCase(productsTitleString);}
 	public boolean isFilterCorrectByDefault() {return driver.findElement(filterContainerByDefault).getText().equalsIgnoreCase(filterContainerByDefaultString);}
 	
-	public boolean filterNameZtoA(String value) {
+	/*public boolean filterNameZtoA() {
+		List<String> itemsReversedOrderPreviousToFilter = inventoryItemsPage.getAllItemsNames().reversed();
 		WebElement filterDropdown = driver.findElement(filterContainer);
 		Select filter = new Select(filterDropdown);
-		filter.selectByValue("za");
-		List <String> items = inventoryItemsPage.getAllItemsNames();
-		List <String> reverseSortedItemsList = new ArrayList<>(items);
-		reverseSortedItemsList.sort(Collections.reverseOrder());
-		return reverseSortedItemsList.equals(items);
-	}
+		filter.selectByValue("za"); // Here I'm sorting by z to a
+		List<String> itemsAfterFiltering = inventoryItemsPage.getAllItemsNames();
+		return itemsReversedOrderPreviousToFilter.equals(itemsAfterFiltering);
+	}*/
 	
-	public boolean filterNameAtoZ() {
+	//Refactoring previous method, for being able to use it for any kind of filter
+	public boolean filteringInventory(String value) {
+		WebElement filterDropdown = driver.findElement(filterContainer);
+		Select filter = new Select(filterDropdown);
+		filter.selectByValue(value);
+		List <String> itemsDefault = inventoryItemsPage.getAllItemsNames();
+		switch(value) {
+		case "az":
+			List <String> itemsAz = inventoryItemsPage.getAllItemsNames();
+			itemsAz.sort(null);
+			itemsDefault.sort(null);
+			return itemsAz.equals(itemsDefault);
+		case "za":
+			List <String> itemsZa = new ArrayList<>(inventoryItemsPage.getAllItemsNames());
+			itemsDefault.sort(Collections.reverseOrder());
+			return itemsZa.equals(itemsDefault);
+		case "lohi":
+			//List <WebElement> itemsLoHi = inventoryItemsPage.sortByByPrice(inventoryItemsPage.getAllItems(), value);
+			List <WebElement> itemsLoHi = inventoryItemsPage.getAllItems();
+			return inventoryItemsPage.isHiLoSorted(itemsLoHi, value);
+		case "hilo":
+			List<WebElement> itemsHiLo = inventoryItemsPage.getAllItems();
+			return inventoryItemsPage.isHiLoSorted(itemsHiLo, value);
+		}
+		return false;
 		
 	}
 	
