@@ -22,9 +22,10 @@ public class InventoryPage {
 	private final By inventoryList = By.cssSelector("div[class='inventory_list']");
 	private final By productsTitle = By.className("title");
 	private final String productsTitleString = "Products";
+	private final By filterDropdownBy = By.className("product_sort_container");
 	
 	//Instance variables
-	WebDriver driver;
+	private  WebDriver driver;
 	ElementUtils elementUtils;
 	InventoryItemsPage inventoryItemsPage;
 	
@@ -52,8 +53,8 @@ public class InventoryPage {
 	
 	//Refactoring previous method, for being able to use it for any kind of filter
 	public boolean filteringInventory(String value) {
-		WebElement filterDropdown = driver.findElement(filterContainer);
-		Select filter = new Select(filterDropdown);
+		WebElement filterDropdownElement = driver.findElement(filterDropdownBy);
+		Select filter = new Select(filterDropdownElement);
 		filter.selectByValue(value);
 		List <String> itemsDefault = inventoryItemsPage.getAllItemsNames();
 		switch(value) {
@@ -67,15 +68,14 @@ public class InventoryPage {
 			itemsDefault.sort(Collections.reverseOrder());
 			return itemsZa.equals(itemsDefault);
 		case "lohi":
-			//List <WebElement> itemsLoHi = inventoryItemsPage.sortByByPrice(inventoryItemsPage.getAllItems(), value);
 			List <WebElement> itemsLoHi = inventoryItemsPage.getAllItems();
 			return inventoryItemsPage.isHiLoSorted(itemsLoHi, value);
 		case "hilo":
 			List<WebElement> itemsHiLo = inventoryItemsPage.getAllItems();
 			return inventoryItemsPage.isHiLoSorted(itemsHiLo, value);
-		}
-		return false;
-		
+		default:
+			return false;
+			}
 	}
 	
 	

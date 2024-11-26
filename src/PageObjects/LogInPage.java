@@ -31,7 +31,7 @@ public class LogInPage {
     protected final String errorMessageWrongUser = "Epic sadface: Username and password do not match any user in this service";
     
     // Instance variables
-	WebDriver driver;
+	private WebDriver driver;
 	ElementUtils elementUtils;
 	
 	public LogInPage(WebDriver driver) {

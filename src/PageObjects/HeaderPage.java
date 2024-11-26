@@ -16,7 +16,7 @@ public class HeaderPage {
 	private final By headerSecondContainer = By.cssSelector("div[class='header_secondary_container']");
 	
 	// Instance variables
-	WebDriver driver;
+	private WebDriver driver;
 	ElementUtils elementUtils;
 	
 	public HeaderPage(WebDriver driver) {

@@ -14,25 +14,24 @@ public class InventoryPageTests extends BaseTest {
 	@Test(description = "Verify inventory is sorted a-z")
 	public void sortAZ() {
 		logInPage.accessStandardUser();
-		Assert.assertTrue(inventoryPage.filteringInventory("az"));
+		Assert.assertTrue(inventoryPage.filteringInventory("az"), "Filtering a-z not working as expected");
 	}
 	
 	@Test(description = "Verify inventory is sorted a-z")
 	public void sortZA() {
 		logInPage.accessStandardUser();
-		Assert.assertTrue(inventoryPage.filteringInventory("za"));
+		Assert.assertTrue(inventoryPage.filteringInventory("za"), "Filtering z-a not working as expected");
 	}
 	
-	@Test(description = "Verify inventory is sorted a-z")
+	@Test(description = "Verify inventory is sorted High to Low")
 	public void sortHighToLow() {
 		logInPage.accessStandardUser();
-		Assert.assertTrue(inventoryPage.filteringInventory("hilo"));
+		Assert.assertTrue(inventoryPage.filteringInventory("hilo"), "Filtering high to low is not working as expected");
 	}
 	
-	@Test(description = "Verify inventory is sorted a-z")
+	@Test(description = "Verify inventory is sorted Low to high")
 	public void sortLowToHigh() {
 		logInPage.accessStandardUser();
-		Assert.assertTrue(inventoryPage.filteringInventory("lohi"));
+		Assert.assertTrue(inventoryPage.filteringInventory("lohi"), "Filtering low to high is not working as expected");
 	}
-	
 }

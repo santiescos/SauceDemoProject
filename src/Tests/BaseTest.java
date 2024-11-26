@@ -13,7 +13,7 @@ import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
 
-	WebDriver driver;
+	protected WebDriver driver;
     protected final String landingURL = "https://www.saucedemo.com/";
     protected LogInPage logInPage;
     protected InventoryPage inventoryPage;

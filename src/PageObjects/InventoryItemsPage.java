@@ -19,15 +19,24 @@ public class InventoryItemsPage {
     private final By itemButton = By.cssSelector(".btn");
 	
 	// Instance variables
-	WebDriver driver;
+	private WebDriver driver;
 	ElementUtils elementUtils;
 	
 	public InventoryItemsPage(WebDriver driver) {
 		this.driver = driver;
 	}
 	
-	List <String> itemsName = getAllItemsNames();
+	//List <String> itemsName = getAllItemsNames();
 
+	private List<String> itemsName;
+
+	public List<String> getItemsName() {
+	    if (itemsName == null) {
+	        itemsName = getAllItemsNames();
+	    }
+	    return itemsName;
+	}
+	
 	public List <WebElement> getAllItems() {
 		return driver.findElements(inventoryItems);
 	}
@@ -75,22 +84,22 @@ public class InventoryItemsPage {
 		//Make an iterator to get the every WebElement and verify if product is > than the next
 		for (int i = 0; i < (elements.size()) - 1; i++) {
 			double currentPrice = extractPriceAsDouble(elements.get(i).findElement(itemPrice).getText());
-			double nextPrice = extractPriceAsDouble(elements.get(+1).findElement(itemPrice).getText());
-			switch(value){
+			double nextPrice = extractPriceAsDouble(elements.get(i+1).findElement(itemPrice).getText());
+			switch (value) {
 				case "hilo":
-					if(currentPrice < nextPrice) {
+					if (currentPrice < nextPrice) {
 						return false;
-					} else {
-						return true;
 					}
+					break;
 				case "lohi":
-					if(currentPrice > nextPrice) {
+					if (currentPrice > nextPrice) {
 						return false;
-					} else {
-						return true;
 					}
+					break;
+				default:
+					return false;
 			}		
 		}
-		return false;
+		return true;
 	}
 }
