@@ -1,15 +1,11 @@
 package PageObjects;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import Tests.BaseTest;
 import Tests.Helpers.ElementUtils;
 
 public class InventoryItemsPage {
@@ -21,9 +17,6 @@ public class InventoryItemsPage {
     private final By itemDescription = By.cssSelector(".inventory_item_desc");
     private final By itemPrice = By.cssSelector(".inventory_item_price");
     private final By itemButton = By.cssSelector(".btn");
-    
-    // List to hold item names
-	private List <String> itemsName = getAllItemsNames();
 	
 	// Instance variables
 	WebDriver driver;
@@ -32,6 +25,8 @@ public class InventoryItemsPage {
 	public InventoryItemsPage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	List <String> itemsName = getAllItemsNames();
 
 	public List <WebElement> getAllItems() {
 		return driver.findElements(inventoryItems);
@@ -43,11 +38,11 @@ public class InventoryItemsPage {
 
 	public List <String> getAllItemsNames() {
 		List <WebElement> items = getAllItems();
-		List <String> itemsName = new ArrayList<>();
+		List <String> names = new ArrayList<>();
 		for (WebElement item : items) {
-			itemsName.add(item.getText());
+			names.add(item.getText());
 		}
-		return itemsName;
+		return names;
 	}
 	
 	public void addItemToCart(String article) {

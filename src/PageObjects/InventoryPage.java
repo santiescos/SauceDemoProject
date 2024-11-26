@@ -10,9 +10,7 @@ import Tests.Helpers.ElementUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 
 public class InventoryPage {
 
@@ -28,11 +26,12 @@ public class InventoryPage {
 	//Instance variables
 	WebDriver driver;
 	ElementUtils elementUtils;
-	InventoryItemsPage inventoryItemsPage = new InventoryItemsPage(driver);
+	InventoryItemsPage inventoryItemsPage;
 	
 	public InventoryPage(WebDriver driver) {
 		this.driver = driver;
 		this.elementUtils = new ElementUtils(driver);
+		this.inventoryItemsPage = new InventoryItemsPage(driver);
 	}
 
 

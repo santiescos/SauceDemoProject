@@ -27,9 +27,9 @@ public class BaseTest {
     	driver.manage().window().maximize();
     	accessLandingPage();
     	logInPage = new LogInPage(driver);
+    	inventoryItemsPage = new InventoryItemsPage(driver);
     	inventoryPage = new InventoryPage(driver);
     	commonAssertions = new CommonAssertions(driver);
-    	inventoryItemsPage = new InventoryItemsPage(driver);
 
     }
     
