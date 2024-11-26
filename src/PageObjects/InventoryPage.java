@@ -42,16 +42,6 @@ public class InventoryPage {
 	public boolean isProductsStringCorrect() {return driver.findElement(productsTitle).getText().equalsIgnoreCase(productsTitleString);}
 	public boolean isFilterCorrectByDefault() {return driver.findElement(filterContainerByDefault).getText().equalsIgnoreCase(filterContainerByDefaultString);}
 	
-	/*public boolean filterNameZtoA() {
-		List<String> itemsReversedOrderPreviousToFilter = inventoryItemsPage.getAllItemsNames().reversed();
-		WebElement filterDropdown = driver.findElement(filterContainer);
-		Select filter = new Select(filterDropdown);
-		filter.selectByValue("za"); // Here I'm sorting by z to a
-		List<String> itemsAfterFiltering = inventoryItemsPage.getAllItemsNames();
-		return itemsReversedOrderPreviousToFilter.equals(itemsAfterFiltering);
-	}*/
-	
-	//Refactoring previous method, for being able to use it for any kind of filter
 	public boolean filteringInventory(String value) {
 		WebElement filterDropdownElement = driver.findElement(filterDropdownBy);
 		Select filter = new Select(filterDropdownElement);
