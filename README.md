@@ -7,7 +7,8 @@ the shopping cart, etc.
 # Table of Contents
 1. [Installation]
 2. [Configuration]
-3. [Testing]
+3. [Technologies used]
+4. [Testing]
 
 ## Installation
 1. Open your preferred IDE. This project was developed on Eclipse for Java developers, with the free license.
@@ -18,6 +19,13 @@ the shopping cart, etc.
 ## Configuration
 Make sure the pom.xm file has the correct dependencies and configurations.
 JDK 22 needs to be set as environment variable.
+
+
+##Technologies Used
+Programming Language: Java
+Testing Framework: TestNG
+Build Tool: Maven
+Browser Automation: Selenium WebDriver
 
 ## Testing
 The test classes are the ones intended to be used. They can be recognized as their name end with "test", e.g. "HomePageTests". 
