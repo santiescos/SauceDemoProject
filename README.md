@@ -22,9 +22,9 @@ JDK 22 needs to be set as environment variable.
 
 
 ##Technologies Used
-Programming Language: Java
-Testing Framework: TestNG
-Build Tool: Maven
+Programming Language:Java
+Testing Framework:TestNG
+Build Tool:Maven
 Browser Automation: Selenium WebDriver
 
 ## Testing
