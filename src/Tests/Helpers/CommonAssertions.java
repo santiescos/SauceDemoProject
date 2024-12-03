@@ -18,6 +18,9 @@ public class CommonAssertions {
 		softAssert.assertTrue(inventoryPage.isFilterContainerVisible(), "Filter Container is not visible");
 		softAssert.assertTrue(inventoryPage.isInventoryContainerVisible(), "Inventory Container is not visible");
 		softAssert.assertTrue(inventoryPage.isInventoryListVisible(), "Inventory List is not visible");
+		softAssert.assertTrue(inventoryPage.isFilterCorrectByDefault(), "Filter is incorrect");
+		softAssert.assertTrue(inventoryPage.isProductsStringCorrect(), "Products title is not correct");
+		softAssert.assertAll();
 	}
 	
 	public void isHeaderPageLoadad(SoftAssert softAssert) {

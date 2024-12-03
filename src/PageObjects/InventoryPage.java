@@ -27,12 +27,12 @@ public class InventoryPage {
 	//Instance variables
 	private  WebDriver driver;
 	ElementUtils elementUtils;
-	InventoryItemsPage inventoryItemsPage;
+	ProductsPage inventoryItemsPage;
 	
 	public InventoryPage(WebDriver driver) {
 		this.driver = driver;
 		this.elementUtils = new ElementUtils(driver);
-		this.inventoryItemsPage = new InventoryItemsPage(driver);
+		this.inventoryItemsPage = new ProductsPage(driver);
 	}
 
 
@@ -46,27 +46,25 @@ public class InventoryPage {
 		WebElement filterDropdownElement = driver.findElement(filterDropdownBy);
 		Select filter = new Select(filterDropdownElement);
 		filter.selectByValue(value);
-		List <String> itemsDefault = inventoryItemsPage.getAllItemsNames();
+		List <String> itemsDefault = inventoryItemsPage.getAllProductsNames();
 		switch(value) {
 		case "az":
-			List <String> itemsAz = inventoryItemsPage.getAllItemsNames();
+			List <String> itemsAz = inventoryItemsPage.getAllProductsNames();
 			itemsAz.sort(null);
 			itemsDefault.sort(null);
 			return itemsAz.equals(itemsDefault);
 		case "za":
-			List <String> itemsZa = new ArrayList<>(inventoryItemsPage.getAllItemsNames());
+			List <String> itemsZa = new ArrayList<>(inventoryItemsPage.getAllProductsNames());
 			itemsDefault.sort(Collections.reverseOrder());
 			return itemsZa.equals(itemsDefault);
 		case "lohi":
-			List <WebElement> itemsLoHi = inventoryItemsPage.getAllItems();
+			List <WebElement> itemsLoHi = inventoryItemsPage.getAllProducts();
 			return inventoryItemsPage.isHiLoSorted(itemsLoHi, value);
 		case "hilo":
-			List<WebElement> itemsHiLo = inventoryItemsPage.getAllItems();
+			List<WebElement> itemsHiLo = inventoryItemsPage.getAllProducts();
 			return inventoryItemsPage.isHiLoSorted(itemsHiLo, value);
 		default:
 			return false;
 			}
 	}
-	
-	
 }
